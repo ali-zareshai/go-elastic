@@ -119,13 +119,13 @@ func Init(cnf *Config) error {
 	cfg := elasticsearch.Config{
 
 		Addresses: []string{
-			fmt.Sprintf("https://%s:%d", cnf.Host, cnf.Port),
+			fmt.Sprintf("http://%s:%d", cnf.Host, cnf.Port),
 		},
 		Username: cnf.User,
 		Password: cnf.Pass,
 		Transport: &http.Transport{
 			DialContext:     (&net.Dialer{Timeout: time.Second * 3}).DialContext,
-			TLSClientConfig: tlsConfig,
+			//TLSClientConfig: tlsConfig,
 		},
 		// ...
 	}
